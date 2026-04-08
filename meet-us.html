@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet Our Team | High Maintenance Hair Salon</title>
+  <meta name="description" content="Meet the talented stylists and beauty artists at High Maintenance Hair Salon in Gulfport, MS."/>
+  <link rel="icon" type="image/svg+xml" href="images/hm-logo.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold:#C9A255;--gold-lt:#EDD898;--gold-dk:#8B6418;--gold-glow:rgba(201,162,85,.18);
+      --dark:#0C0905;--dark2:#171209;--dark3:#1E1710;--dark4:#251D12;
+      --cream:#F4ECD8;--cream60:rgba(244,236,216,.6);--cream80:rgba(244,236,216,.85);
+      --r:4px;--t:0.32s ease;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--dark);color:var(--cream);font-family:'Raleway',sans-serif;font-weight:300;line-height:1.75;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.15}
+    .gold{color:var(--gold)}
+    .eyebrow{display:block;font-size:.68rem;font-weight:600;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+    .divider{display:block;width:54px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 2rem}
+    .btn{display:inline-block;padding:.72rem 1.8rem;font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;border-radius:var(--r);transition:all var(--t);cursor:pointer;border:none}
+    .btn-gold{background:var(--gold);color:var(--dark)}
+    .btn-gold:hover{background:var(--gold-lt);box-shadow:0 8px 28px rgba(201,162,85,.3);transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--cream);border:1px solid rgba(244,236,216,.35)}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+    .btn-sm{padding:.55rem 1.3rem;font-size:.64rem}
+
+    /* NAV (shared) */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:76px;background:rgba(12,9,5,.97);box-shadow:0 1px 0 rgba(201,162,85,.18)}
+    .nav-logo{display:flex;align-items:center;gap:.6rem}
+    .nav-logo img{height:46px;width:auto}
+    .nav-logo span{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;letter-spacing:.12em;color:var(--gold-lt);line-height:1.1}
+    .nav-logo small{display:block;font-family:'Raleway',sans-serif;font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);opacity:.8}
+    nav ul{display:flex;align-items:center;gap:2.2rem;list-style:none}
+    nav ul a{font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cream60);transition:color var(--t);position:relative;padding-bottom:3px}
+    nav ul a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width var(--t)}
+    nav ul a:hover,nav ul a.active{color:var(--gold)}
+    nav ul a:hover::after,nav ul a.active::after{width:100%}
+    .nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.48rem 1.3rem;border-radius:var(--r);font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transition:all var(--t);cursor:pointer}
+    .nav-cta:hover{background:var(--gold);color:var(--dark)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .hamburger span{display:block;width:24px;height:1.5px;background:var(--gold)}
+    #mobile-menu{display:none;position:fixed;top:76px;left:0;right:0;background:rgba(12,9,5,.98);border-top:1px solid rgba(201,162,85,.15);padding:2rem;z-index:998;flex-direction:column;gap:1.4rem}
+    #mobile-menu.open{display:flex}
+    #mobile-menu a{font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cream60);padding:.5rem 0;border-bottom:1px solid rgba(201,162,85,.08)}
+
+    /* PAGE HERO */
+    .page-hero{padding:9rem 2rem 5rem;text-align:center;background:linear-gradient(to bottom,var(--dark2),var(--dark));position:relative;overflow:hidden}
+    .page-hero::before{content:'';position:absolute;inset:0;background-image:url('images/team.jpg');background-size:cover;background-position:center 15%;opacity:.12}
+    .page-hero-inner{position:relative;z-index:1}
+    .page-hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-style:italic;margin-bottom:1rem}
+    .page-hero p{font-size:.9rem;color:var(--cream60);max-width:500px;margin:0 auto}
+    .gold-bar{display:block;width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto}
+
+    /* TEAM INTRO */
+    .team-intro{background:var(--dark2);padding:3rem 2rem;text-align:center}
+    .team-intro p{font-size:.88rem;color:var(--cream80);max-width:640px;margin:0 auto}
+
+    /* TEAM GRID */
+    #team{padding:5rem 2rem}
+    .team-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+
+    /* STYLIST CARD */
+    .stylist-card{background:var(--dark3);border:1px solid rgba(201,162,85,.1);border-radius:var(--r);overflow:hidden;transition:border-color var(--t),transform var(--t),box-shadow var(--t);display:flex;flex-direction:column}
+    .stylist-card:hover{border-color:rgba(201,162,85,.35);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.5)}
+    .card-photo{aspect-ratio:1/1;position:relative;overflow:hidden;background:var(--dark4)}
+    .card-photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+    .stylist-card:hover .card-photo img{transform:scale(1.05)}
+    .card-photo-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.6rem;background:linear-gradient(135deg,var(--dark4),var(--dark3))}
+    .card-photo-placeholder .initials{width:72px;height:72px;border-radius:50%;background:rgba(201,162,85,.12);border:1px solid rgba(201,162,85,.2);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);font-style:italic}
+    .card-photo-placeholder .photo-hint{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,162,85,.3)}
+    .card-badge{position:absolute;top:.75rem;right:.75rem;background:rgba(201,162,85,.85);color:var(--dark);font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .7rem;border-radius:2px}
+    .card-body{padding:1.6rem;flex:1;display:flex;flex-direction:column}
+    .card-name{font-size:1.4rem;font-style:italic;color:var(--gold-lt);margin-bottom:.25rem}
+    .card-title{font-size:.65rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.9rem}
+    .card-spec{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem}
+    .spec-tag{font-size:.62rem;font-weight:500;letter-spacing:.1em;padding:.25rem .65rem;border:1px solid rgba(201,162,85,.2);border-radius:2px;color:var(--cream60)}
+    .card-cta{margin-top:auto;display:flex;gap:.6rem}
+    .card-cta a{flex:1;text-align:center}
+
+    /* PLACEHOLDER NOTICE */
+    .placeholder-notice{max-width:1200px;margin:0 auto 3rem;padding:1.5rem 2rem;background:rgba(201,162,85,.06);border:1px solid rgba(201,162,85,.15);border-radius:var(--r);display:flex;align-items:center;gap:1rem;font-size:.8rem;color:var(--cream60)}
+    .placeholder-notice svg{width:20px;height:20px;stroke:var(--gold);flex-shrink:0}
+
+    /* HIRE CARD */
+    .hire-card{background:linear-gradient(135deg,var(--dark4),var(--dark3));border:1px dashed rgba(201,162,85,.2);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem;gap:1rem;min-height:420px}
+    .hire-card svg{width:40px;height:40px;stroke:rgba(201,162,85,.3)}
+    .hire-card h3{font-size:1.2rem;font-style:italic;color:rgba(244,236,216,.4)}
+    .hire-card p{font-size:.75rem;color:rgba(244,236,216,.25);max-width:200px}
+
+    /* CTA STRIP */
+    .cta-strip{background:var(--dark2);border-top:1px solid rgba(201,162,85,.1);border-bottom:1px solid rgba(201,162,85,.1);padding:4rem 2rem;text-align:center}
+    .cta-strip h2{font-size:clamp(1.6rem,3vw,2.4rem);font-style:italic;margin-bottom:1rem}
+    .cta-strip p{font-size:.85rem;color:var(--cream60);margin-bottom:2rem}
+
+    /* FOOTER (shared) */
+    #footer{background:var(--dark2);border-top:1px solid rgba(201,162,85,.15);padding:2.5rem 2rem}
+    .footer-bottom{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-bottom p{font-size:.7rem;color:rgba(244,236,216,.3)}
+    .daa-credit{display:flex;align-items:center;gap:.5rem;font-size:.7rem;color:rgba(244,236,216,.4);transition:color var(--t)}
+    .daa-credit:hover{color:var(--gold)}
+    .daa-credit img{height:22px;width:auto;opacity:.55;transition:opacity var(--t)}
+    .daa-credit:hover img{opacity:.85}
+
+    @media(max-width:900px){
+      #nav{padding:0 1.5rem}
+      nav ul{display:none}
+      .hamburger{display:flex}
+    }
+    @media(max-width:600px){
+      .team-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+      .card-body{padding:1rem}
+      .card-cta{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<header id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/hm-logo.svg" alt="HM Hair Salon Logo"/>
+    <span>High Maintenance<small>Hair Salon</small></span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="meet-us.html" class="active">Meet Us</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="index.html#book" class="nav-cta">Book Now</a></li>
+    </ul>
+  </nav>
+  <button class="hamburger" onclick="document.getElementById('mobile-menu').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div id="mobile-menu">
+  <a href="index.html#services">Services</a>
+  <a href="index.html#about">About</a>
+  <a href="meet-us.html">Meet Our Team</a>
+  <a href="index.html#gallery">Gallery</a>
+  <a href="index.html#book">Book an Appointment</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <span class="eyebrow">The Talent Behind the Magic</span>
+    <h1>Meet <em class="gold">Our Team</em></h1>
+    <div class="gold-bar"></div>
+    <p>From precision color to showstopping blowouts, our stylists bring passion and expertise to every chair. Click any stylist to see their work and book directly with them.</p>
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<div class="team-intro">
+  <p>We're a close-knit crew of licensed stylists, colorists, and beauty artists — each with their own specialty and style. Every member of our team is committed to making you feel exceptional, every single visit.</p>
+</div>
+
+<!-- TEAM GRID -->
+<section id="team">
+  <div class="placeholder-notice">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    Placeholder cards shown below — stylist names, photos, bios, and specialties will be added once provided.
+  </div>
+
+  <div class="team-grid">
+
+    <!-- CARD TEMPLATE — duplicate for each stylist -->
+    <div class="stylist-card">
+      <div class="card-photo">
+        <div class="card-photo-placeholder">
+          <div class="initials">S1</div>
+          <span class="photo-hint">Headshot goes here</span>
+        </div>
+        <span class="card-badge">Colorist</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Stylist Name</div>
+        <div class="card-title">Senior Stylist & Colorist</div>
+        <div class="card-spec">
+          <span class="spec-tag">Balayage</span>
+          <span class="spec-tag">Color</span>
+          <span class="spec-tag">Cuts</span>
+        </div>
+        <div class="card-cta">
+          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
+          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stylist-card">
+      <div class="card-photo">
+        <div class="card-photo-placeholder">
+          <div class="initials">S2</div>
+          <span class="photo-hint">Headshot goes here</span>
+        </div>
+        <span class="card-badge">Makeup</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Stylist Name</div>
+        <div class="card-title">Stylist & Makeup Artist</div>
+        <div class="card-spec">
+          <span class="spec-tag">Makeup</span>
+          <span class="spec-tag">Updos</span>
+          <span class="spec-tag">Bridal</span>
+        </div>
+        <div class="card-cta">
+          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
+          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stylist-card">
+      <div class="card-photo">
+        <div class="card-photo-placeholder">
+          <div class="initials">S3</div>
+          <span class="photo-hint">Headshot goes here</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Stylist Name</div>
+        <div class="card-title">Hair Stylist</div>
+        <div class="card-spec">
+          <span class="spec-tag">Women's Cuts</span>
+          <span class="spec-tag">Highlights</span>
+        </div>
+        <div class="card-cta">
+          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
+          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stylist-card">
+      <div class="card-photo">
+        <div class="card-photo-placeholder">
+          <div class="initials">S4</div>
+          <span class="photo-hint">Headshot goes here</span>
+        </div>
+        <span class="card-badge">Spray Tan</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Stylist Name</div>
+        <div class="card-title">Stylist & Spray Tan Specialist</div>
+        <div class="card-spec">
+          <span class="spec-tag">Spray Tan</span>
+          <span class="spec-tag">Color</span>
+          <span class="spec-tag">Cuts</span>
+        </div>
+        <div class="card-cta">
+          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
+          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stylist-card">
+      <div class="card-photo">
+        <div class="card-photo-placeholder">
+          <div class="initials">S5</div>
+          <span class="photo-hint">Headshot goes here</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Stylist Name</div>
+        <div class="card-title">Hair Stylist</div>
+        <div class="card-spec">
+          <span class="spec-tag">Men's Cuts</span>
+          <span class="spec-tag">Fades</span>
+          <span class="spec-tag">Styles</span>
+        </div>
+        <div class="card-cta">
+          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
+          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stylist-card">
+      <div class="card-photo">
+        <div class="card-photo-placeholder">
+          <div class="initials">S6</div>
+          <span class="photo-hint">Headshot goes here</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Stylist Name</div>
+        <div class="card-title">Hair Stylist</div>
+        <div class="card-spec">
+          <span class="spec-tag">Cuts</span>
+          <span class="spec-tag">Ombré</span>
+          <span class="spec-tag">Treatment</span>
+        </div>
+        <div class="card-cta">
+          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
+          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stylist-card">
+      <div class="card-photo">
+        <div class="card-photo-placeholder">
+          <div class="initials">S7</div>
+          <span class="photo-hint">Headshot goes here</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Stylist Name</div>
+        <div class="card-title">Hair Stylist</div>
+        <div class="card-spec">
+          <span class="spec-tag">Cuts</span>
+          <span class="spec-tag">Color</span>
+        </div>
+        <div class="card-cta">
+          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
+          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stylist-card">
+      <div class="card-photo">
+        <div class="card-photo-placeholder">
+          <div class="initials">S8</div>
+          <span class="photo-hint">Headshot goes here</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Stylist Name</div>
+        <div class="card-title">Hair Stylist</div>
+        <div class="card-spec">
+          <span class="spec-tag">Cuts</span>
+          <span class="spec-tag">Highlights</span>
+          <span class="spec-tag">Blowout</span>
+        </div>
+        <div class="card-cta">
+          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
+          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- "Join Our Team" card -->
+    <div class="hire-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><line x1="12" y1="14" x2="12" y2="20" stroke-width=".5" opacity=".4"/></svg>
+      <h3>Your Chair Is Waiting</h3>
+      <p>Talented stylist? We're always looking for great people.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOOK CTA -->
+<div class="cta-strip">
+  <span class="eyebrow">Ready to Get Started?</span>
+  <h2>Find Your <em class="gold">Perfect Stylist</em></h2>
+  <p>Not sure who to book with? Call us and we'll match you with the right fit for your hair goals.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="index.html#book" class="btn btn-gold">Request an Appointment</a>
+    <a href="tel:2282065999" class="btn btn-outline">Call (228) 206-5999</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-bottom">
+    <p>© 2025 High Maintenance Hair Salon LLC. All rights reserved.</p>
+    <a href="https://aalbertsberg.us" target="_blank" class="daa-credit">
+      Built by: Double-A Solutions
+      <img src="images/daa-logo.svg" alt="Double-A Solutions"/>
+    </a>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('click', (e) => {
+    const menu = document.getElementById('mobile-menu');
+    const ham = document.querySelector('.hamburger');
+    if (menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target)) {
+      menu.classList.remove('open');
+    }
+  });
+
+  // Fade in cards
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.stylist-card, .hire-card').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity .55s ease ${i * 0.07}s, transform .55s ease ${i * 0.07}s`;
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

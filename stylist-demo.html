@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Page Preview | High Maintenance Hair Salon</title>
+  <link rel="icon" type="image/svg+xml" href="images/hm-logo.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold:#C9A255;--gold-lt:#EDD898;--gold-dk:#8B6418;
+      --dark:#0C0905;--dark2:#171209;--dark3:#1E1710;--dark4:#251D12;
+      --cream:#F4ECD8;--cream60:rgba(244,236,216,.6);--cream80:rgba(244,236,216,.85);
+      --r:4px;--t:0.32s ease;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--dark);color:var(--cream);font-family:'Raleway',sans-serif;font-weight:300;line-height:1.75;overflow-x:hidden}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.15}
+    .gold{color:var(--gold)}
+    .eyebrow{display:block;font-size:.68rem;font-weight:600;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+    .divider{display:block;width:54px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 2rem}
+    .btn{display:inline-block;padding:.78rem 2rem;font-family:'Raleway',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;border-radius:var(--r);transition:all var(--t);cursor:pointer;border:none}
+    .btn-gold{background:var(--gold);color:var(--dark)}
+    .btn-gold:hover{background:var(--gold-lt);box-shadow:0 8px 28px rgba(201,162,85,.3);transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--cream);border:1px solid rgba(244,236,216,.35)}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+    .btn-sm{padding:.55rem 1.3rem;font-size:.62rem}
+
+    /* PITCH BANNER */
+    .pitch-banner{background:linear-gradient(135deg,rgba(201,162,85,.18),rgba(201,162,85,.06));border-bottom:2px solid var(--gold);padding:1rem 2rem;text-align:center;position:sticky;top:0;z-index:2000}
+    .pitch-banner p{font-size:.78rem;font-weight:600;letter-spacing:.1em;color:var(--gold-lt)}
+    .pitch-banner span{opacity:.7;font-weight:300}
+
+    /* NAV */
+    #nav{background:rgba(12,9,5,.97);box-shadow:0 1px 0 rgba(201,162,85,.18);display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:72px}
+    .nav-logo{display:flex;align-items:center;gap:.6rem}
+    .nav-logo img{height:42px;width:auto}
+    .nav-logo span{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;letter-spacing:.12em;color:var(--gold-lt);line-height:1.1}
+    .nav-logo small{display:block;font-family:'Raleway',sans-serif;font-size:.53rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);opacity:.8}
+    nav ul{display:flex;gap:2rem;list-style:none}
+    nav ul a{font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--cream60);transition:color var(--t)}
+    nav ul a:hover{color:var(--gold)}
+    .nav-cta{background:transparent;border:1px solid var(--gold);color:var(--gold);padding:.44rem 1.2rem;border-radius:var(--r);font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:all var(--t)}
+    .nav-cta:hover{background:var(--gold);color:var(--dark)}
+
+    /* STYLIST HERO */
+    .stylist-hero{position:relative;padding:5rem 2rem 4rem;background:var(--dark2);overflow:hidden}
+    .stylist-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%, rgba(201,162,85,.06) 0%, transparent 65%)}
+    .stylist-hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:340px 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+    .stylist-photo-wrap{position:relative}
+    .stylist-photo{width:100%;aspect-ratio:3/4;border-radius:var(--r);object-fit:cover}
+    .stylist-photo-placeholder{width:100%;aspect-ratio:3/4;background:linear-gradient(160deg,var(--dark3),var(--dark4));border:1px solid rgba(201,162,85,.18);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem}
+    .placeholder-avatar{width:100px;height:100px;border-radius:50%;background:rgba(201,162,85,.1);border:2px solid rgba(201,162,85,.25);display:flex;align-items:center;justify-content:center}
+    .placeholder-avatar svg{width:48px;height:48px;stroke:rgba(201,162,85,.45);stroke-width:1}
+    .stylist-photo-placeholder p{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,162,85,.3);text-align:center}
+    .photo-replace-hint{background:rgba(201,162,85,.08);border:1px solid rgba(201,162,85,.18);border-radius:var(--r);padding:.5rem .8rem;font-size:.6rem;letter-spacing:.1em;color:rgba(201,162,85,.5);text-align:center;margin-top:.8rem}
+    .stylist-photo-frame{position:absolute;top:1.2rem;left:-1.2rem;right:1.2rem;bottom:-1.2rem;border:1px solid rgba(201,162,85,.2);border-radius:var(--r);z-index:-1}
+    .stylist-info h1{font-size:clamp(2rem,4vw,3.2rem);font-style:italic;margin-bottom:.3rem;color:var(--gold-lt)}
+    .stylist-role{font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+    .stylist-bio{font-size:.9rem;color:var(--cream80);margin-bottom:1.5rem;max-width:480px}
+    .spec-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+    .spec-tag{font-size:.65rem;font-weight:500;letter-spacing:.12em;padding:.32rem .8rem;border:1px solid rgba(201,162,85,.25);border-radius:2px;color:var(--cream60);transition:all var(--t)}
+    .spec-tag:hover{border-color:var(--gold);color:var(--gold)}
+    .stylist-actions{display:flex;gap:.8rem;flex-wrap:wrap}
+    .stylist-social{display:flex;gap:.6rem;margin-top:1.2rem}
+    .social-icon{width:36px;height:36px;border:1px solid rgba(201,162,85,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all var(--t)}
+    .social-icon svg{width:16px;height:16px;stroke:var(--gold);stroke-width:1.5}
+    .social-icon:hover{border-color:var(--gold);background:rgba(201,162,85,.08)}
+
+    /* STATS ROW */
+    .stats-row{background:var(--dark);border-top:1px solid rgba(201,162,85,.1);border-bottom:1px solid rgba(201,162,85,.1);padding:2rem}
+    .stats-inner{max-width:900px;margin:0 auto;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap}
+    .stat{text-align:center}
+    .stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--gold);line-height:1}
+    .stat-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream60);margin-top:.3rem}
+    .stat-ph{font-size:.68rem;color:rgba(201,162,85,.3);letter-spacing:.08em}
+
+    /* PORTFOLIO */
+    #portfolio{padding:5rem 2rem;background:var(--dark2)}
+    #portfolio h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-style:italic;text-align:center;margin-bottom:.5rem}
+    .portfolio-filter{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin:2rem 0}
+    .filter-btn{padding:.4rem 1.2rem;font-family:'Raleway',sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(201,162,85,.2);background:transparent;color:var(--cream60);border-radius:2px;cursor:pointer;transition:all var(--t)}
+    .filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,162,85,.06)}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:900px;margin:0 auto}
+    .portfolio-item{aspect-ratio:1/1;background:var(--dark3);border:1px dashed rgba(201,162,85,.12);border-radius:var(--r);overflow:hidden;position:relative;cursor:pointer}
+    .portfolio-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+    .portfolio-item:hover img{transform:scale(1.06)}
+    .portfolio-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;padding:1rem}
+    .portfolio-placeholder svg{width:28px;height:28px;stroke:rgba(201,162,85,.2);stroke-width:1}
+    .portfolio-placeholder span{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(201,162,85,.22);text-align:center}
+    .portfolio-overlay{position:absolute;inset:0;background:rgba(12,9,5,.7);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity var(--t)}
+    .portfolio-item:hover .portfolio-overlay{opacity:1}
+    .portfolio-overlay span{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+
+    /* ABOUT SECTION */
+    #about-stylist{padding:5rem 2rem;background:var(--dark)}
+    .about-stylist-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+    .about-stylist h2{font-size:clamp(1.6rem,3vw,2.4rem);font-style:italic;margin-bottom:1.5rem}
+    .about-stylist p{font-size:.87rem;color:var(--cream80);margin-bottom:1rem}
+    .fun-facts{background:var(--dark3);border:1px solid rgba(201,162,85,.12);border-radius:var(--r);padding:2rem}
+    .fun-facts h4{font-size:1rem;font-style:italic;color:var(--gold-lt);margin-bottom:1.2rem}
+    .fact-item{display:flex;gap:.8rem;margin-bottom:1rem;align-items:flex-start}
+    .fact-icon{font-size:1rem;flex-shrink:0;margin-top:.15rem}
+    .fact-text{font-size:.8rem;color:var(--cream80)}
+    .fact-label{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.2rem}
+
+    /* BOOKING */
+    #book-stylist{padding:5rem 2rem;background:var(--dark2)}
+    .booking-wrap{max-width:780px;margin:0 auto}
+    .booking-wrap h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-style:italic;text-align:center;margin-bottom:.5rem}
+    .booking-form{background:var(--dark3);border:1px solid rgba(201,162,85,.15);border-radius:var(--r);padding:3rem;margin-top:3rem}
+    .form-group{margin-bottom:1.2rem}
+    .form-group label{display:block;font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.45rem}
+    .form-group input,.form-group select,.form-group textarea{width:100%;background:var(--dark4);border:1px solid rgba(201,162,85,.2);color:var(--cream);font-family:'Raleway',sans-serif;font-size:.84rem;font-weight:300;padding:.72rem 1rem;border-radius:var(--r);outline:none;transition:border-color var(--t);-webkit-appearance:none}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(244,236,216,.3)}
+    .form-group select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A255' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;cursor:pointer}
+    .form-group select option{background:var(--dark3)}
+    .form-group textarea{resize:vertical;min-height:100px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    #stylist-success{display:none;background:rgba(201,162,85,.1);border:1px solid rgba(201,162,85,.3);border-radius:var(--r);padding:1.5rem;text-align:center;margin-top:1rem;font-size:.85rem;color:var(--gold-lt)}
+
+    /* REVIEWS */
+    #reviews{padding:5rem 2rem;background:var(--dark)}
+    #reviews h2{font-size:clamp(1.8rem,3vw,2.6rem);font-style:italic;text-align:center;margin-bottom:.5rem}
+    .reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;max-width:1000px;margin:3rem auto 0}
+    .review-card{background:var(--dark3);border:1px solid rgba(201,162,85,.1);border-radius:var(--r);padding:1.8rem;position:relative}
+    .review-card::before{content:'"';position:absolute;top:.5rem;left:1.2rem;font-family:'Cormorant Garamond',serif;font-size:4rem;color:rgba(201,162,85,.1);line-height:1}
+    .review-stars{color:var(--gold);font-size:.9rem;margin-bottom:.8rem}
+    .review-text{font-size:.82rem;color:var(--cream80);font-style:italic;margin-bottom:1rem;line-height:1.7}
+    .review-author{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+    .review-placeholder{opacity:.4}
+
+    /* FOOTER */
+    #footer{background:var(--dark2);border-top:1px solid rgba(201,162,85,.15);padding:2rem}
+    .footer-bottom{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-bottom p{font-size:.7rem;color:rgba(244,236,216,.3)}
+    .daa-credit{display:flex;align-items:center;gap:.5rem;font-size:.7rem;color:rgba(244,236,216,.4);transition:color var(--t)}
+    .daa-credit:hover{color:var(--gold)}
+    .daa-credit img{height:22px;width:auto;opacity:.55;transition:opacity var(--t)}
+    .daa-credit:hover img{opacity:.85}
+
+    @media(max-width:900px){
+      .stylist-hero-inner{grid-template-columns:1fr}
+      .stylist-photo-wrap{max-width:300px;margin:0 auto}
+      .stylist-photo-frame{display:none}
+      .about-stylist-inner{grid-template-columns:1fr}
+      #nav{padding:0 1.5rem}
+      nav ul{display:none}
+      .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+      .form-row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<!-- PITCH BANNER -->
+<div class="pitch-banner">
+  <p>✨ This is a <strong>preview</strong> of your personal stylist page — <span>your photos, your bio, your booking form. All yours.</span></p>
+</div>
+
+<!-- NAV -->
+<header id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="images/hm-logo.svg" alt="HM Hair Salon"/>
+    <span>High Maintenance<small>Hair Salon</small></span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="meet-us.html">Meet Us</a></li>
+      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="#book-stylist" class="nav-cta">Book Me</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- STYLIST HERO -->
+<section class="stylist-hero">
+  <div class="stylist-hero-inner">
+    <div class="stylist-photo-wrap">
+      <div class="stylist-photo-placeholder">
+        <div class="placeholder-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <p>Your headshot here</p>
+      </div>
+      <div class="photo-replace-hint">📸 Replace with: images/stylist-yourname.jpg</div>
+      <div class="stylist-photo-frame"></div>
+    </div>
+
+    <div class="stylist-info">
+      <span class="eyebrow">High Maintenance Hair Salon</span>
+      <h1>Your Name Here</h1>
+      <div class="stylist-role">Senior Stylist · Colorist</div>
+      <p class="stylist-bio">This is YOUR bio — a short paragraph about your background, your passion for hair, the clients you love working with, and what makes your approach unique. You own this page. Make it yours.</p>
+      <div class="spec-tags">
+        <span class="spec-tag">Balayage</span>
+        <span class="spec-tag">Color Correction</span>
+        <span class="spec-tag">Precision Cuts</span>
+        <span class="spec-tag">Bridal</span>
+        <span class="spec-tag">Extensions</span>
+        <span class="spec-tag">Makeup</span>
+      </div>
+      <div class="stylist-actions">
+        <a href="#book-stylist" class="btn btn-gold">Book with Me</a>
+        <a href="#portfolio" class="btn btn-outline">See My Work</a>
+      </div>
+      <div class="stylist-social">
+        <a href="#" class="social-icon" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="#C9A255"/></svg>
+        </a>
+        <a href="#" class="social-icon" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Years at HM</div>
+      <div class="stat-ph">← your number</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Happy Clients</div>
+      <div class="stat-ph">← your number</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Passion for Hair</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Coffee Required</div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <span class="eyebrow" style="display:block;text-align:center">Work Examples</span>
+  <h2 style="text-align:center">My Portfolio</h2>
+  <span class="divider"></span>
+  <div class="portfolio-filter">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">Color</button>
+    <button class="filter-btn">Cuts</button>
+    <button class="filter-btn">Bridal</button>
+    <button class="filter-btn">Before & After</button>
+  </div>
+  <div class="portfolio-grid">
+    <!-- Each item: replace div with <img src="..." alt="..."/> -->
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Photo 1</span></div>
+      <div class="portfolio-overlay"><span>View</span></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Photo 2</span></div>
+      <div class="portfolio-overlay"><span>View</span></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Photo 3</span></div>
+      <div class="portfolio-overlay"><span>View</span></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Photo 4</span></div>
+      <div class="portfolio-overlay"><span>View</span></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Photo 5</span></div>
+      <div class="portfolio-overlay"><span>View</span></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Photo 6</span></div>
+      <div class="portfolio-overlay"><span>View</span></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Photo 7</span></div>
+      <div class="portfolio-overlay"><span>View</span></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Photo 8</span></div>
+      <div class="portfolio-overlay"><span>View</span></div>
+    </div>
+    <div class="portfolio-item">
+      <div class="portfolio-placeholder"><svg viewBox="0 0 24 24" fill="none" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg><span>Photo 9</span></div>
+      <div class="portfolio-overlay"><span>View</span></div>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:.75rem;color:rgba(201,162,85,.4);margin-top:2rem">Add your own photos — just drop them in the images/ folder and update the src attributes above.</p>
+</section>
+
+<!-- ABOUT & FUN FACTS -->
+<section id="about-stylist">
+  <div class="about-stylist-inner">
+    <div class="about-stylist">
+      <span class="eyebrow">My Story</span>
+      <h2>About <em class="gold">Me</em></h2>
+      <span class="divider" style="margin-left:0"></span>
+      <p>This is the longer version of your bio — write as much or as little as you want. Tell your clients about how you got into the industry, what you love about it, and what kind of experience they can expect in your chair.</p>
+      <p>Are you known for your balayage work? Do you love a good transformation? Are you the person people come to for color corrections? Are you passionate about healthy hair? Put it here.</p>
+      <p>This page is entirely yours to customize. When you're ready to fill it in, just send your info and photos and we'll update it.</p>
+    </div>
+    <div class="fun-facts">
+      <h4>Quick Facts</h4>
+      <div class="fact-item">
+        <span class="fact-icon">✂️</span>
+        <div class="fact-text">
+          <span class="fact-label">Specialty</span>
+          Balayage & Color Correction — your specialty here
+        </div>
+      </div>
+      <div class="fact-item">
+        <span class="fact-icon">🎓</span>
+        <div class="fact-text">
+          <span class="fact-label">Education</span>
+          Where you trained / certifications
+        </div>
+      </div>
+      <div class="fact-item">
+        <span class="fact-icon">🏆</span>
+        <div class="fact-text">
+          <span class="fact-label">Proudest Work</span>
+          Something you're proud of — an award, a transformation, a moment
+        </div>
+      </div>
+      <div class="fact-item">
+        <span class="fact-icon">☕</span>
+        <div class="fact-text">
+          <span class="fact-label">Fun Fact</span>
+          Something personal and fun — clients love knowing who you are
+        </div>
+      </div>
+      <div class="fact-item">
+        <span class="fact-icon">📱</span>
+        <div class="fact-text">
+          <span class="fact-label">Follow Me</span>
+          @yourstylisthandle on Instagram
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <span class="eyebrow" style="display:block;text-align:center">Client Love</span>
+  <h2 style="text-align:center">What People Are Saying</h2>
+  <span class="divider"></span>
+  <div class="reviews-grid">
+    <div class="review-card review-placeholder">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">She is absolutely amazing at what she does. I've been coming to her for years and never leave disappointed. My hair has never looked better!</p>
+      <div class="review-author">Client Name · Google Review</div>
+    </div>
+    <div class="review-card review-placeholder">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Best balayage I've ever gotten. She truly listened to what I wanted and delivered beyond my expectations. I won't go anywhere else.</p>
+      <div class="review-author">Client Name · Facebook Review</div>
+    </div>
+    <div class="review-card review-placeholder">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">I was so nervous for my transformation but she made me feel completely comfortable. The result was stunning. Highly recommend!</p>
+      <div class="review-author">Client Name · Google Review</div>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:.72rem;color:rgba(201,162,85,.35);margin-top:2.5rem">Replace with real client reviews once collected.</p>
+</section>
+
+<!-- BOOKING -->
+<section id="book-stylist">
+  <div class="booking-wrap">
+    <span class="eyebrow" style="display:block;text-align:center">Let's Work Together</span>
+    <h2>Book with <em class="gold">Me</em></h2>
+    <span class="divider"></span>
+    <p style="text-align:center;font-size:.87rem;color:var(--cream60)">Fill out the form below and I'll reach out to confirm your appointment.</p>
+
+    <div class="booking-form">
+      <!-- TODO: Replace FORM_ID with stylist-specific Formspree endpoint -->
+      <form id="stylist-form" action="https://formspree.io/f/xnjoynvw" method="POST">
+        <input type="hidden" name="stylist" value="Your Name"/>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" name="first_name" placeholder="Jane" required/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" name="last_name" placeholder="Smith" required/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="(228) 555-0100" required/>
+          </div>
+          <div class="form-group">
+            <label>Email (optional)</label>
+            <input type="email" name="email" placeholder="jane@email.com"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Service Requested</label>
+          <select name="service" required>
+            <option value="" disabled selected>Select a service…</option>
+            <option>Women's Cut & Style</option>
+            <option>Men's Cut</option>
+            <option>Children's Cut</option>
+            <option>Color / Highlights</option>
+            <option>Balayage / Ombré</option>
+            <option>Makeup Application</option>
+            <option>Spray Tan</option>
+            <option>Multiple Services</option>
+            <option>Consultation</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" name="preferred_date"/>
+          </div>
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <select name="preferred_time">
+              <option>No preference</option>
+              <option>Morning (8–10 AM)</option>
+              <option>Late Morning (10–12 PM)</option>
+              <option>Early Afternoon (12–2 PM)</option>
+              <option>Afternoon (2–5 PM)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Tell me about your hair goals</label>
+          <textarea name="notes" placeholder="Inspiration photos? Current hair situation? Allergies? Anything I should know?"></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%;margin-top:.5rem">Send My Request</button>
+        <div id="stylist-success">✨ Got it! I'll reach out soon to confirm your appointment. Can't wait to meet you!</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="footer-bottom">
+    <p>© 2025 High Maintenance Hair Salon LLC · <a href="index.html" style="color:var(--gold);opacity:.6">Back to Main Site</a></p>
+    <a href="https://aalbertsberg.us" target="_blank" class="daa-credit">
+      Built by: Double-A Solutions
+      <img src="images/daa-logo.svg" alt="Double-A Solutions"/>
+    </a>
+  </div>
+</footer>
+
+<script>
+  // Filter buttons (visual only — filtering logic to be added with real photos)
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Form
+  const form = document.getElementById('stylist-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('button[type=submit]');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        document.getElementById('stylist-success').style.display = 'block';
+        btn.textContent = 'Sent! ✓';
+      } else {
+        btn.textContent = 'Error — please call the salon';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Error — please call the salon';
+      btn.disabled = false;
+    }
+  });
+
+  // Fade in on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.portfolio-item, .review-card, .stat').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = `opacity .5s ease ${i * 0.06}s, transform .5s ease ${i * 0.06}s`;
+    obs.observe(el);
+  });
+</script>
+</body>
+</html>
