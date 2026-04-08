@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>High Maintenance Hair Salon | Gulfport, MS</title>
   <meta name="description" content="High Maintenance Hair Salon — Gulfport's premier hair and beauty salon. Expert stylists, color, cuts, makeup, and more. 1625 25th Ave, (228) 206-5999."/>
-  <link rel="icon" type="image/svg+xml" href="images/hm-logo.svg"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%231a1510'/><text x='6' y='74' font-family='Georgia,serif' font-size='62' font-weight='bold' fill='%23B8913A'>HM</text></svg>"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -48,7 +48,7 @@
     #nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 3rem;height:76px;background:transparent;transition:background var(--t),box-shadow var(--t)}
     #nav.scrolled{background:rgba(12,9,5,.97);box-shadow:0 1px 0 rgba(201,162,85,.18)}
     .nav-logo{display:flex;align-items:center;gap:.6rem}
-    .nav-logo img{height:46px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
+    .nav-logo img,.nav-logo .logo-svg{height:46px;width:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.5))}
     .nav-logo span{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;letter-spacing:.12em;color:var(--gold-lt);line-height:1.1}
     .nav-logo small{display:block;font-family:'Raleway',sans-serif;font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);opacity:.8}
     nav ul{display:flex;align-items:center;gap:2.2rem;list-style:none}
@@ -219,7 +219,7 @@
 <!-- ═══════════ NAV ═══════════ -->
 <header id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="images/hm-logo.svg" alt="HM Hair Salon Logo"/>
+    <svg class="logo-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="110" cy="110" r="109" fill="#1a1510"/><circle cx="110" cy="110" r="96" fill="#fff"/><text x="18" y="160" font-family="Georgia,'Book Antiqua',Palatino,serif" font-size="128" font-weight="bold" fill="#B8913A">H</text><text x="103" y="160" font-family="Georgia,'Book Antiqua',Palatino,serif" font-size="128" font-weight="bold" fill="#B8913A">M</text><text x="110" y="125" font-family="Georgia,'Book Antiqua',Palatino,serif" font-size="12" fill="#B8913A" text-anchor="middle" letter-spacing="4">HAIR SALON</text></svg>
     <span>High Maintenance<small>Hair Salon</small></span>
   </a>
   <nav>
@@ -396,6 +396,9 @@
       <div class="gallery-item">
         <img src="images/exterior-snow.jpg" alt="High Maintenance Hair Salon exterior on a snowy day in Gulfport" class="gallery-img"/>
       </div>
+      <div class="gallery-item">
+        <img src="images/team-lounge.jpg" alt="The High Maintenance team relaxing in the salon lounge" class="gallery-img"/>
+      </div>
     </div>
     <div style="text-align:center;margin-top:2.5rem">
       <a href="https://www.instagram.com/highmaintenancehairsalon/" target="_blank" class="btn btn-outline">See More on Instagram</a>
@@ -546,7 +549,7 @@
 <footer id="footer">
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="images/hm-logo.svg" alt="HM Hair Salon"/>
+      <svg class="logo-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="110" cy="110" r="109" fill="#1a1510"/><circle cx="110" cy="110" r="96" fill="#fff"/><text x="18" y="160" font-family="Georgia,'Book Antiqua',Palatino,serif" font-size="128" font-weight="bold" fill="#B8913A">H</text><text x="103" y="160" font-family="Georgia,'Book Antiqua',Palatino,serif" font-size="128" font-weight="bold" fill="#B8913A">M</text><text x="110" y="125" font-family="Georgia,'Book Antiqua',Palatino,serif" font-size="12" fill="#B8913A" text-anchor="middle" letter-spacing="4">HAIR SALON</text></svg>
       <p>High Maintenance Hair Salon is a locally owned and operated Gulf Coast salon serving Gulfport and surrounding communities with premium hair and beauty services.</p>
     </div>
     <div class="footer-col">
