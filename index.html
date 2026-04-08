@@ -212,6 +212,13 @@
       .info-bar-inner{gap:1.2rem}
       .info-divider{display:none}
     }
+    /* ── LIGHTBOX ── */
+    #lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;padding:1rem}
+    #lightbox.open{display:flex}
+    #lb-img{max-width:92vw;max-height:88vh;object-fit:contain;border-radius:var(--r);box-shadow:0 20px 60px rgba(0,0,0,.8);cursor:default}
+    .lb-close{position:absolute;top:1rem;right:1.4rem;color:var(--gold);font-size:2.2rem;line-height:1;cursor:pointer;z-index:10000;transition:color var(--t)}
+    .lb-close:hover{color:var(--gold-lt)}
+    .gallery-item{cursor:pointer}
   </style>
 </head>
 <body>
@@ -249,7 +256,7 @@
   <div class="hero-bg" id="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content" id="hero-content">
-    <span class="eyebrow">Gulfport, Mississippi &nbsp;·&nbsp; Gulf Coast Salon</span>
+    <span class="eyebrow">Gulfport, MS &nbsp;·&nbsp; Gulf Coast Salon</span>
     <h1 class="hero-title">Beautifully <em>High Maintenance.</em></h1>
     <p class="hero-sub">Precision cuts, stunning color, expert makeup — serving the Gulf Coast with pride.</p>
     <div class="hero-actions">
@@ -371,28 +378,28 @@
     <h2 style="text-align:center">Fresh Out the Chair</h2>
     <span class="divider"></span>
     <div class="gallery-grid">
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('images/interior.jpg','Salon interior — brick walls, chandelier, warm lighting')">
         <img src="images/interior.jpg" alt="Salon interior — brick walls, chandelier, warm lighting" class="gallery-img"/>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('images/exterior-fall.jpg','High Maintenance Hair Salon storefront — fall window art')">
         <img src="images/exterior-fall.jpg" alt="High Maintenance Hair Salon storefront — fall window art" class="gallery-img"/>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('images/exterior-christmas.jpg','High Maintenance Hair Salon — Christmas is in the Hair window art')">
         <img src="images/exterior-christmas.jpg" alt="High Maintenance Hair Salon — Christmas is in the Hair window art" class="gallery-img"/>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('images/sign-wall.jpg','HM Hair Salon gold interior sign on teal wall')">
         <img src="images/sign-wall.jpg" alt="HM Hair Salon gold interior sign on teal wall" class="gallery-img"/>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('images/stylists-group.jpg','High Maintenance Hair Salon stylists')">
         <img src="images/stylists-group.jpg" alt="High Maintenance Hair Salon stylists" class="gallery-img"/>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('images/stylist-counter.jpg','Stylist in the salon')">
         <img src="images/stylist-counter.jpg" alt="Stylist in the salon" class="gallery-img"/>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('images/exterior-snow.jpg','High Maintenance Hair Salon exterior on a snowy day in Gulfport')">
         <img src="images/exterior-snow.jpg" alt="High Maintenance Hair Salon exterior on a snowy day in Gulfport" class="gallery-img"/>
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item" onclick="openLightbox('images/team-lounge.jpg','The High Maintenance team relaxing in the salon lounge')">
         <img src="images/team-lounge.jpg" alt="The High Maintenance team relaxing in the salon lounge" class="gallery-img"/>
       </div>
     </div>
@@ -575,7 +582,26 @@
   </div>
 </footer>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <span class="lb-close" onclick="closeLightbox()">&times;</span>
+  <img id="lb-img" src="" alt="" onclick="event.stopPropagation()"/>
+</div>
+
 <script>
+  // Lightbox
+  function openLightbox(src, alt) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lb-img').alt = alt || '';
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
   // Nav scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
