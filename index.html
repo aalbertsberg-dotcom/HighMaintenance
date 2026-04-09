@@ -93,7 +93,7 @@
     #services{background:var(--dark2)}
     #services h2{font-size:clamp(2rem,4vw,3rem);font-style:italic;text-align:center;margin-bottom:.5rem}
     .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3.5rem}
-    .service-card{background:var(--dark3);border:1px solid rgba(201,162,85,.12);border-radius:var(--r);padding:2.5rem 2rem;text-align:center;transition:border-color var(--t),transform var(--t),box-shadow var(--t)}
+    .service-card{background:var(--dark3);border:1px solid rgba(201,162,85,.12);border-radius:var(--r);padding:2.5rem 2rem;text-align:center;transition:border-color var(--t),transform var(--t),box-shadow var(--t);display:block;color:inherit;cursor:pointer}
     .service-card:hover{border-color:rgba(201,162,85,.4);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
     .service-icon{font-size:2rem;margin-bottom:1.2rem;display:block}
     .service-card h3{font-size:1.35rem;font-style:italic;margin-bottom:.7rem;color:var(--gold-lt)}
@@ -302,31 +302,31 @@
     <h2>Our Services</h2>
     <span class="divider"></span>
     <div class="services-grid">
-      <div class="service-card">
+      <a href="service-womens.html" class="service-card">
         <span class="service-icon">✂️</span>
         <h3>Women's Cuts & Style</h3>
         <p>From classic trims to transformative new looks, our stylists craft cuts tailored to your face shape, lifestyle, and personality.</p>
-      </div>
-      <div class="service-card">
+      </a>
+      <a href="service-color.html" class="service-card">
         <span class="service-icon">🎨</span>
         <h3>Color & Highlights</h3>
         <p>Balayage, ombré, full color, foil highlights — we use premium color lines to achieve vibrant, long-lasting results.</p>
-      </div>
-      <div class="service-card">
+      </a>
+      <a href="service-mens.html" class="service-card">
         <span class="service-icon">👦</span>
         <h3>Men's Cuts</h3>
         <p>Precision cuts, fades, and styling for men. Look sharp, feel confident, walk out fresh.</p>
-      </div>
-      <div class="service-card">
+      </a>
+      <a href="service-childrens.html" class="service-card">
         <span class="service-icon">👧</span>
         <h3>Children's Cuts</h3>
         <p>A welcoming, kid-friendly environment. First haircuts, trims, and fun styles in a space where little ones feel at ease.</p>
-      </div>
-      <div class="service-card">
+      </a>
+      <a href="service-makeup.html" class="service-card">
         <span class="service-icon">💄</span>
         <h3>Makeup Application</h3>
         <p>Special occasions, weddings, pageants, or just because — our makeup artists deliver stunning, photo-ready results.</p>
-      </div>
+      </a>
 
     </div>
     <p style="text-align:center;font-size:.78rem;color:var(--cream60);margin-top:2.5rem">Full service menu and pricing coming soon — call us for details.</p>
