@@ -173,7 +173,7 @@
     /* ── FOOTER ── */
     #footer{background:var(--dark2);border-top:1px solid rgba(201,162,85,.15);padding:3rem 2rem 2rem}
     .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
-    .footer-brand img{height:56px;width:auto;margin-bottom:1rem}
+    .footer-brand img,.footer-brand .logo-svg{height:56px;width:auto;margin-bottom:1rem}
     .footer-brand p{font-size:.8rem;color:var(--cream60);max-width:280px;line-height:1.7}
     .footer-col h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--gold-lt);margin-bottom:1rem}
     .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
@@ -184,8 +184,8 @@
     .footer-bottom p{font-size:.7rem;color:rgba(244,236,216,.3)}
     .daa-credit{display:flex;align-items:center;gap:.5rem;font-size:.7rem;color:rgba(244,236,216,.4);transition:color var(--t)}
     .daa-credit:hover{color:var(--gold)}
-    .daa-credit img{height:22px;width:auto;opacity:.55;transition:opacity var(--t)}
-    .daa-credit:hover img{opacity:.85}
+    .daa-credit img,.daa-credit svg{height:22px;width:auto;opacity:.55;transition:opacity var(--t)}
+    .daa-credit:hover img,.daa-credit:hover svg{opacity:.85}
 
     /* ── RESPONSIVE ── */
     @media(max-width:900px){
@@ -577,7 +577,7 @@
     <p>© 2025 High Maintenance Hair Salon LLC. All rights reserved.</p>
     <a href="https://aalbertsberg.us" target="_blank" class="daa-credit">
       Built by: Double-A Solutions
-      <img src="images/daa-logo.svg" alt="Double-A Solutions"/>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="height:22px;width:auto;opacity:.55;transition:opacity 0.32s ease"><path d="M100 20L170 60L170 140L100 180L30 140L30 60Z" fill="#1e3a8a" stroke="#06b6d4" stroke-width="3"/><text x="100" y="120" font-family="Arial,sans-serif" font-size="70" font-weight="bold" fill="#06b6d4" text-anchor="middle">AA</text></svg>
     </a>
   </div>
 </footer>
