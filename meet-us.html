@@ -104,7 +104,7 @@
     .footer-bottom p{font-size:.7rem;color:rgba(244,236,216,.3)}
     .daa-credit{display:flex;align-items:center;gap:.5rem;font-size:.7rem;color:rgba(244,236,216,.4);transition:color var(--t)}
     .daa-credit:hover{color:var(--gold)}
-    .daa-credit img{height:22px;width:auto;opacity:.55;transition:opacity var(--t)}
+    .daa-credit img,.daa-credit svg{height:22px;width:auto;opacity:.55;transition:opacity var(--t)}
     .daa-credit:hover img{opacity:.85}
 
     @media(max-width:900px){
@@ -172,44 +172,22 @@
 
   <div class="team-grid">
 
-    <!-- CARD TEMPLATE — duplicate for each stylist -->
+    <!-- JEAN GILLAN — Owner -->
     <div class="stylist-card">
       <div class="card-photo">
         <div class="card-photo-placeholder">
-          <div class="initials">S1</div>
-          <span class="photo-hint">Headshot goes here</span>
+          <div class="initials">JG</div>
+          <span class="photo-hint">images/jean-gillan.jpg</span>
         </div>
-        <span class="card-badge">Colorist</span>
+        <span class="card-badge">Owner</span>
       </div>
       <div class="card-body">
-        <div class="card-name">Stylist Name</div>
-        <div class="card-title">Senior Stylist & Colorist</div>
+        <div class="card-name">Jean Gillan</div>
+        <div class="card-title">Owner · Hair Stylist</div>
         <div class="card-spec">
-          <span class="spec-tag">Balayage</span>
+          <span class="spec-tag">Updos</span>
           <span class="spec-tag">Color</span>
           <span class="spec-tag">Cuts</span>
-        </div>
-        <div class="card-cta">
-          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
-          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="stylist-card">
-      <div class="card-photo">
-        <div class="card-photo-placeholder">
-          <div class="initials">S2</div>
-          <span class="photo-hint">Headshot goes here</span>
-        </div>
-        <span class="card-badge">Makeup</span>
-      </div>
-      <div class="card-body">
-        <div class="card-name">Stylist Name</div>
-        <div class="card-title">Stylist & Makeup Artist</div>
-        <div class="card-spec">
-          <span class="spec-tag">Makeup</span>
-          <span class="spec-tag">Updos</span>
           <span class="spec-tag">Bridal</span>
         </div>
         <div class="card-cta">
@@ -219,19 +197,20 @@
       </div>
     </div>
 
+    <!-- TIFFANY FEASLER -->
     <div class="stylist-card">
       <div class="card-photo">
-        <div class="card-photo-placeholder">
-          <div class="initials">S3</div>
-          <span class="photo-hint">Headshot goes here</span>
-        </div>
+        <img src="images/tiffany-feasler.jpg" alt="Tiffany Feasler" style="width:100%;height:100%;object-fit:cover"/>
+        <span class="card-badge">Makeup</span>
       </div>
       <div class="card-body">
-        <div class="card-name">Stylist Name</div>
-        <div class="card-title">Hair Stylist</div>
+        <div class="card-name">Tiffany Feasler</div>
+        <div class="card-title">Stylist &amp; Makeup Artist</div>
         <div class="card-spec">
-          <span class="spec-tag">Women's Cuts</span>
-          <span class="spec-tag">Highlights</span>
+          <span class="spec-tag">Makeup</span>
+          <span class="spec-tag">Bridal</span>
+          <span class="spec-tag">Hair</span>
+          <span class="spec-tag">Glam</span>
         </div>
         <div class="card-cta">
           <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
@@ -240,21 +219,22 @@
       </div>
     </div>
 
+    <!-- EMMA SHAVERS -->
     <div class="stylist-card">
       <div class="card-photo">
         <div class="card-photo-placeholder">
-          <div class="initials">S4</div>
-          <span class="photo-hint">Headshot goes here</span>
+          <div class="initials">ES</div>
+          <span class="photo-hint">images/emma-shavers.jpg</span>
         </div>
-        <span class="card-badge">Spray Tan</span>
+        <span class="card-badge">Makeup</span>
       </div>
       <div class="card-body">
-        <div class="card-name">Stylist Name</div>
-        <div class="card-title">Stylist & Spray Tan Specialist</div>
+        <div class="card-name">Emma Shavers</div>
+        <div class="card-title">Makeup Artist</div>
         <div class="card-spec">
-          <span class="spec-tag">Spray Tan</span>
-          <span class="spec-tag">Color</span>
-          <span class="spec-tag">Cuts</span>
+          <span class="spec-tag">Makeup</span>
+          <span class="spec-tag">Bridal</span>
+          <span class="spec-tag">Glam</span>
         </div>
         <div class="card-cta">
           <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
@@ -263,63 +243,66 @@
       </div>
     </div>
 
+    <!-- TYLER -->
     <div class="stylist-card">
       <div class="card-photo">
         <div class="card-photo-placeholder">
-          <div class="initials">S5</div>
-          <span class="photo-hint">Headshot goes here</span>
+          <div class="initials">TY</div>
+          <span class="photo-hint">images/tyler.jpg</span>
         </div>
       </div>
       <div class="card-body">
-        <div class="card-name">Stylist Name</div>
-        <div class="card-title">Hair Stylist</div>
-        <div class="card-spec">
-          <span class="spec-tag">Men's Cuts</span>
-          <span class="spec-tag">Fades</span>
-          <span class="spec-tag">Styles</span>
-        </div>
-        <div class="card-cta">
-          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
-          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="stylist-card">
-      <div class="card-photo">
-        <div class="card-photo-placeholder">
-          <div class="initials">S6</div>
-          <span class="photo-hint">Headshot goes here</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-name">Stylist Name</div>
-        <div class="card-title">Hair Stylist</div>
-        <div class="card-spec">
-          <span class="spec-tag">Cuts</span>
-          <span class="spec-tag">Ombré</span>
-          <span class="spec-tag">Treatment</span>
-        </div>
-        <div class="card-cta">
-          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
-          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="stylist-card">
-      <div class="card-photo">
-        <div class="card-photo-placeholder">
-          <div class="initials">S7</div>
-          <span class="photo-hint">Headshot goes here</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-name">Stylist Name</div>
+        <div class="card-name">Tyler</div>
         <div class="card-title">Hair Stylist</div>
         <div class="card-spec">
           <span class="spec-tag">Cuts</span>
           <span class="spec-tag">Color</span>
+          <span class="spec-tag">Men's</span>
+        </div>
+        <div class="card-cta">
+          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
+          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAYLIN -->
+    <div class="stylist-card">
+      <div class="card-photo">
+        <div class="card-photo-placeholder">
+          <div class="initials">MA</div>
+          <span class="photo-hint">images/maylin.jpg</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Maylin</div>
+        <div class="card-title">Hair Stylist</div>
+        <div class="card-spec">
+          <span class="spec-tag">Cuts</span>
+          <span class="spec-tag">Color</span>
+          <span class="spec-tag">Bridal</span>
+        </div>
+        <div class="card-cta">
+          <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
+          <a href="index.html#book" class="btn btn-gold btn-sm">Book</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER SLOTS for remaining team members -->
+    <div class="stylist-card">
+      <div class="card-photo">
+        <div class="card-photo-placeholder">
+          <div class="initials">??</div>
+          <span class="photo-hint">Coming soon</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Stylist Name</div>
+        <div class="card-title">Hair Stylist</div>
+        <div class="card-spec">
+          <span class="spec-tag">Cuts</span>
+          <span class="spec-tag">Color</span>
         </div>
         <div class="card-cta">
           <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
@@ -331,8 +314,8 @@
     <div class="stylist-card">
       <div class="card-photo">
         <div class="card-photo-placeholder">
-          <div class="initials">S8</div>
-          <span class="photo-hint">Headshot goes here</span>
+          <div class="initials">??</div>
+          <span class="photo-hint">Coming soon</span>
         </div>
       </div>
       <div class="card-body">
@@ -341,7 +324,6 @@
         <div class="card-spec">
           <span class="spec-tag">Cuts</span>
           <span class="spec-tag">Highlights</span>
-          <span class="spec-tag">Blowout</span>
         </div>
         <div class="card-cta">
           <a href="stylist-demo.html" class="btn btn-outline btn-sm">View Portfolio</a>
@@ -377,7 +359,7 @@
     <p>© 2025 High Maintenance Hair Salon LLC. All rights reserved.</p>
     <a href="https://aalbertsberg.us" target="_blank" class="daa-credit">
       Built by: Double-A Solutions
-      <img src="images/daa-logo.svg" alt="Double-A Solutions"/>
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="height:22px;width:auto;opacity:.55;transition:opacity 0.32s ease"><path d="M100 20L170 60L170 140L100 180L30 140L30 60Z" fill="#1e3a8a" stroke="#06b6d4" stroke-width="3"/><text x="100" y="120" font-family="Arial,sans-serif" font-size="70" font-weight="bold" fill="#06b6d4" text-anchor="middle">AA</text></svg>
     </a>
   </div>
 </footer>
